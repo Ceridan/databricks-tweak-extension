@@ -1,0 +1,38 @@
+{
+  "name": "databricks-enhancements-extension",
+  "version": "0.0.1",
+  "description": "Google Chrome extension to enhance Databricks UI",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ceridan/databricks-enhancements-extension.git"
+  },
+  "keywords": [
+    "Databricks",
+    "Chrome Extension",
+    "Web Extension"
+  ],
+  "author": {
+    "name": "Mikhail Kumachev",
+    "email": "mikhail.kumachev@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ceridan/databricks-enhancements-extension/issues"
+  },
+  "homepage": "https://github.com/Ceridan/databricks-enhancements-extension#readme",
+  "devDependencies": {
+    "@types/chrome": "0.0.126",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
