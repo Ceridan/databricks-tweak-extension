@@ -25,8 +25,8 @@ function locationHashChanged() {
     const timerId = setInterval(() => {
       if (document.getElementsByClassName('job-list-table')[0] !== undefined) {
         clearInterval(timerId)
-        sortJobsByDesc()
         restoreFilterValue()
+        sortJobsByDesc()
       }
     }, 1000)
   }
