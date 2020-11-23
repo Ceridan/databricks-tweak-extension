@@ -1,5 +1,5 @@
 {
-  "name": "databricks-enhancements-extension",
+  "name": "databricks-tweak-extension",
   "version": "0.0.1",
   "description": "Google Chrome extension to enhance Databricks UI",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ceridan/databricks-enhancements-extension.git"
+    "url": "git+https://github.com/Ceridan/databricks-tweak-extension.git"
   },
   "keywords": [
     "Databricks",
@@ -21,9 +21,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ceridan/databricks-enhancements-extension/issues"
+    "url": "https://github.com/Ceridan/databricks-tweak-extension/issues"
   },
-  "homepage": "https://github.com/Ceridan/databricks-enhancements-extension#readme",
+  "homepage": "https://github.com/Ceridan/databricks-tweak-extension#readme",
   "devDependencies": {
     "@types/chrome": "0.0.126",
     "clean-webpack-plugin": "^3.0.0",

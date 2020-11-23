@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Databricks Enhancements",
-  "description": "Databricks Enhancements is a web extension which adds some additional functionality to the Databricks UI",
+  "name": "Databricks tweak",
+  "description": "Databricks tweak is a web extension which adds some additional functionality to the Databricks UI",
   "version": "0.0.1",
   "content_scripts": [{
     "matches": [

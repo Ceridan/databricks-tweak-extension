@@ -1,4 +1,4 @@
-# Databricks Enhancements Extension overview
+# Databricks tweak Extension overview
 
 Google Chrome extension to enhance [Databricks](https://databricks.com/) UI.
 
