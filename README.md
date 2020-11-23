@@ -5,6 +5,7 @@ Google Chrome extension to enhance [Databricks](https://databricks.com/) UI. Dat
 ## Features list
 
 - Jobs are sorted in descending order by `Job ID` by default on the `Jobs` tab.
+- Restores the filter state on `Jobs` tab when you leave it and navigate back. For example jump to some job details and navigate back via `All Jobs` link there.
 
 ## How to build an extension
 
