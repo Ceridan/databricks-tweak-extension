@@ -3,8 +3,8 @@ import { FeatureTogglesStorageKey, Features } from './features'
 
 const featureToggles = Object.assign({}, ...Object.values(Features).map((ft) => ({ [ft]: true })))
 
-Storage.load(Object.values(Features), (fts) => {
-  Object.assign(FeatureTogglesStorageKey, fts)
+Storage.load(FeatureTogglesStorageKey, (fts) => {
+  Object.assign(featureToggles, fts)
 })
 
 let jobListFilter = ''
