@@ -1,3 +1,12 @@
+import Storage from './storage'
+import { FeatureTogglesStorageKey, Features } from './features'
+
+const featureToggles = Object.assign({}, ...Object.values(Features).map((ft) => ({ [ft]: true })))
+
+Storage.load(Object.values(Features), (fts) => {
+  Object.assign(FeatureTogglesStorageKey, fts)
+})
+
 let jobListFilter = ''
 
 function sortJobsByDesc() {
@@ -25,8 +34,8 @@ function locationHashChanged() {
     const timerId = setInterval(() => {
       if (document.getElementsByClassName('job-list-table')[0] !== undefined) {
         clearInterval(timerId)
-        restoreFilterValue()
-        sortJobsByDesc()
+        if (featureToggles[Features.restoreFilterValue]) restoreFilterValue()
+        if (featureToggles[Features.sortJobsByDesc]) sortJobsByDesc()
       }
     }, 1000)
   }
@@ -34,3 +43,8 @@ function locationHashChanged() {
 
 window.addEventListener('load', locationHashChanged)
 window.addEventListener('hashchange', locationHashChanged)
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes[FeatureTogglesStorageKey] && changes[FeatureTogglesStorageKey].newValue) {
+    Object.assign(FeatureTogglesStorageKey, changes[FeatureTogglesStorageKey].newValue)
+  }
+})
