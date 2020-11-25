@@ -30,7 +30,7 @@ document.getElementById('save-options').addEventListener('click', () => {
       statusElement.innerText = error.message
     } else {
       statusElement.className = 'success'
-      statusElement.innerText = 'Changes is successfully saved'
+      statusElement.innerText = 'Changes saved successfully'
     }
   })
 })
