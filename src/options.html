@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="css/options.css" />
+  </head>
+  <body>
+    <div id="feature-toggles">
+      <section>
+        <h1>Databricks UI feature toggles</h1>
+        <em>You may enable or disable any feature here</em>
+        <div class="feature-toggle">
+          <input type="checkbox" id="sortJobsByDesc" name="feature-toggle" checked="checked" />
+          <label for="sortJobsByDesc">Sorting jobs in descending order by "Job ID"</label>
+        </div>
+        <div class="feature-toggle">
+          <input type="checkbox" id="restoreFilterValue" name="feature-toggle" checked="checked" />
+          <label for="restoreFilterValue">Restore last filter state on "Jobs" tab</label>
+        </div>
+      </section>
+    </div>
+    <div>
+      <button id="save-options">Save</button>
+    </div>
+    <div id="options-status"></div>
+  </body>
+</html>
