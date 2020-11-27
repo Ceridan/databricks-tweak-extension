@@ -27,7 +27,7 @@ You may enable or disable any feature in the extension options.
 
 ## How to load extension to your browser
 
-Currently tested with Google Chrome, but possible should work with other browsers.
+Currently supported only Google Chrome browser.
 
 Instructions for Google Chrome:
 
