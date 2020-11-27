@@ -1,10 +1,10 @@
 import Storage from './storage'
-import { FeatureTogglesStorageKey, Features } from './features'
+import { FeatureTogglesStorageKey, Features, getEnabledFeatures } from './features'
 
-const featureToggles = Object.assign({}, ...Object.values(Features).map((ft) => ({ [ft]: true })))
+const featureToggles = getEnabledFeatures()
 
 Storage.load(FeatureTogglesStorageKey, (fts) => {
-  Object.assign(featureToggles, fts)
+  Object.assign(featureToggles, fts && fts[FeatureTogglesStorageKey])
 })
 
 let jobListFilter = ''
@@ -19,7 +19,9 @@ function sortJobsByDesc() {
 function restoreFilterValue() {
   const filter = document.getElementById('input')
 
-  if (!filter.value && jobListFilter) {
+  if (filter.value && !jobListFilter) {
+    jobListFilter = filter.value
+  } else if (!filter.value && jobListFilter) {
     filter.value = jobListFilter
     filter.dispatchEvent(new Event('input', { bubbles: true }))
   }
@@ -32,7 +34,7 @@ function restoreFilterValue() {
 function locationHashChanged() {
   if (document.location.hash.startsWith('#joblist')) {
     const timerId = setInterval(() => {
-      if (document.getElementsByClassName('job-list-table')[0] !== undefined) {
+      if (document.getElementsByClassName('job-list-table')[0]) {
         clearInterval(timerId)
         if (featureToggles[Features.restoreFilterValue]) restoreFilterValue()
         if (featureToggles[Features.sortJobsByDesc]) sortJobsByDesc()
@@ -45,6 +47,6 @@ window.addEventListener('load', locationHashChanged)
 window.addEventListener('hashchange', locationHashChanged)
 chrome.storage.onChanged.addListener((changes) => {
   if (changes[FeatureTogglesStorageKey] && changes[FeatureTogglesStorageKey].newValue) {
-    Object.assign(FeatureTogglesStorageKey, changes[FeatureTogglesStorageKey].newValue)
+    Object.assign(featureToggles, changes[FeatureTogglesStorageKey].newValue)
   }
 })
