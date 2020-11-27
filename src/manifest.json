@@ -3,6 +3,10 @@
   "name": "Databricks Tweak",
   "description": "Databricks Tweak is a web extension which adds some additional functionality to the Databricks UI",
   "version": "0.0.1",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
   "content_scripts": [{
     "matches": [
       "https://*.cloud.databricks.com/*",
@@ -12,6 +16,7 @@
     "run_at": "document_end"
   }],
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ]
 }

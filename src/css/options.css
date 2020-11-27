@@ -1,0 +1,55 @@
+body {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+em {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 15px 10px;
+}
+
+section {
+  margin: 5px 0;
+}
+
+div {
+  margin: 5px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+div.feature-toggle {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+  margin: 15px 5px 5px 5px;
+  width: calc(100% - 10px);
+}
+
+#options-status {
+  margin: 10px;
+}
+
+#options-status:empty::after {
+  content: ".";
+  visibility: hidden;
+}
+
+#options-status.success {
+  color: green;
+}
+
+#options-status.error {
+  color: red;
+}
