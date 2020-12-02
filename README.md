@@ -1,4 +1,4 @@
-# <img src="src/img/icon512.png" width="64"> Databricks Tweak Extension overview
+# <img src="src/img/icon48.png" width="48"> Databricks Tweak Extension
 
 Google Chrome extension to enhance [Databricks](https://databricks.com/) UI. Databricks is great platform but there are some places in the UI which can be optimized in terms of productivity. `Databricks Tweak` extension adds some minor features to Databricks UI which could save you time if you are working with the Databricks on the every day basis.
 
