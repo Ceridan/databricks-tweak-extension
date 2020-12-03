@@ -20,12 +20,18 @@ jobs:
           npm ci
           npm run build
 
+      - name: Get asset name
+        id: asset
+        run: |
+          asset=DatabricksTweak_${GITHUB_REF##*/}.zip
+          echo "::set-output name=name::$asset"
+
       - name: Upload asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: "out/DatabricksTweak_${GITHUB_REF##*/}.zip"
-          asset_name: "DatabricksTweak_${GITHUB_REF##*/}.zip"
+          asset_path: out/${{ steps.asset.outputs.name }}
+          asset_name: ${{ steps.asset.outputs.name }}
           asset_content_type: application/zip
