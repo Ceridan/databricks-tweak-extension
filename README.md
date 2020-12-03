@@ -1,6 +1,6 @@
-# ![logo](src/img/icon48.png) Databricks Tweak
+# ![logo](images/logo.png) Databricks Tweak
 
-Databricks Tweak is a Google Chrome extension to enhance [Databricks](https://databricks.com/) UI. Databricks is great platform but there are some places in the UI which can be optimized in terms of productivity. `Databricks Tweak` extension adds some minor features to Databricks UI which could save you time if you are working with the Databricks on the every day basis.
+Databricks Tweak is a Google Chrome extension to enhance [Databricks](https://databricks.com/) UI. Databricks is great platform but there are some places in the UI which can be optimized in terms of productivity. `Databricks Tweak` extension adds some features to Databricks UI which could save you time if you are working with the Databricks on the every day basis.
 
 ## Features list
 
