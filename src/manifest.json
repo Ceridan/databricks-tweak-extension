@@ -24,6 +24,8 @@
   }],
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "https://*.cloud.databricks.com/*",
+    "https://*.azuredatabricks.net/*"
   ]
 }
