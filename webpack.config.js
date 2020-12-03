@@ -1,11 +1,12 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ZipPlugin = require('zip-webpack-plugin')
 const path = require('path')
 
 const PACKAGE = require('./package.json')
 
-module.exports = (_, argv) => ({
+const config = {
   entry: {
     content: path.resolve(__dirname, 'src/js/content.js'),
     options: path.resolve(__dirname, 'src/js/options.js'),
@@ -15,7 +16,6 @@ module.exports = (_, argv) => ({
     filename: 'js/[name].js',
   },
   context: __dirname,
-  devtool: argv.mode === 'development' ? 'source-map' : false,
   module: {
     rules: [
       {
@@ -49,4 +49,17 @@ module.exports = (_, argv) => ({
       chunks: ['options'],
     }),
   ],
-})
+}
+
+module.exports = (_, argv) => {
+  config.devtool = argv.mode === 'development' ? 'source-map' : false
+  if (argv.mode === 'production') {
+    config.plugins.push(
+      new ZipPlugin({
+        path: '../out',
+        filename: `DatabricksTweak_v${PACKAGE.version}.zip`,
+      }),
+    )
+  }
+  return config
+}
