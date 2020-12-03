@@ -3,6 +3,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
+const PACKAGE = require('./package.json')
+
 module.exports = (_, argv) => ({
   entry: {
     content: path.resolve(__dirname, 'src/js/content.js'),
@@ -34,7 +36,11 @@ module.exports = (_, argv) => ({
       patterns: [
         { from: 'src/css', to: 'css' },
         { from: 'src/img', to: 'img' },
-        { from: 'src/manifest.json' },
+        {
+          from: 'src/manifest.json',
+          transform: (content) => content.toString().replace('{{PACKAGE_VERSION}}', PACKAGE.version),
+          force: true,
+        },
       ],
     }),
     new HtmlWebpackPlugin({

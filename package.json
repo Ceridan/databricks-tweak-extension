@@ -1,6 +1,6 @@
 {
   "name": "databricks-tweak-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Google Chrome extension to enhance Databricks UI",
   "scripts": {
     "build": "webpack --mode production",

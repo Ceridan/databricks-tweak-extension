@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Databricks Tweak",
-  "version": "0.0.1",
-  "description": "Databricks Tweak is a web extension which adds some additional functionality to the Databricks UI",
+  "version": "{{PACKAGE_VERSION}}",
+  "description": "Databricks Tweak is a web extension which adds some additional functionality to Databricks UI",
   "icons": {
     "16": "img/icon16.png",
     "32": "img/icon32.png",
