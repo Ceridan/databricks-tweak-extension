@@ -1,6 +1,10 @@
 # ![logo](images/logo.png) Databricks Tweak
 
+[![chrome-web-store](https://img.shields.io/chrome-web-store/v/ildmaaenkjijfjohacihiijkhhhjehgj)][chrome-web-store]
+
 Databricks Tweak is a Google Chrome extension to enhance [Databricks](https://databricks.com/) UI. Databricks is great platform but there are some places in the UI which can be optimized in terms of productivity. `Databricks Tweak` extension adds some features to Databricks UI which could save you time if you are working with the Databricks on the every day basis.
+
+You may get Databricks Tweak extension from [Google Web Store][chrome-web-store].
 
 ## Features list
 
@@ -34,3 +38,5 @@ Instructions for Google Chrome:
 1. Open browser and navigate to `chrome://extensions`.
 2. Enable `Developer Mode` by clicking the toggle switch next to `Developer mode`.
 3. Click the `Load unpacked` button and select the `dist` folder.
+
+[chrome-web-store]: https://chrome.google.com/webstore/detail/databricks-tweak/ildmaaenkjijfjohacihiijkhhhjehgj
