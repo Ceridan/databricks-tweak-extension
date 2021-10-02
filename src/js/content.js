@@ -7,17 +7,29 @@ Storage.load(FeatureTogglesStorageKey, (fts) => {
   Object.assign(featureToggles, fts && fts[FeatureTogglesStorageKey])
 })
 
-let jobListFilter = ''
+let jobListFilter
+let root
+
+function getJobsPageRoot() {
+  const shadowElements = document.getElementsByTagName('databricks-jaws')
+  if (shadowElements.length === 0) return undefined
+
+  const { shadowRoot } = shadowElements[0]
+  if (!shadowRoot) return undefined
+
+  const jobsPageRoot = Array.from(shadowRoot.childNodes).find((node) => node.id === 'mfe-root')
+  return jobsPageRoot
+}
 
 function sortJobsByDesc() {
-  const columns = Array.from(document.querySelectorAll('a.header-cell'))
-  const jobColumn = columns.filter((column) => column.innerText === 'Job ID')[0]
+  const columns = Array.from(root.querySelectorAll('a.header-cell'))
+  const jobColumn = columns.find((column) => column.innerText === 'Job ID')
   jobColumn.click()
   jobColumn.click()
 }
 
 function restoreFilterValue() {
-  const filter = document.getElementById('input')
+  const filter = root.querySelector('#input')
 
   if (filter.value && !jobListFilter) {
     jobListFilter = filter.value
@@ -32,14 +44,16 @@ function restoreFilterValue() {
 }
 
 function locationHashChanged() {
-  if (document.location.hash.startsWith('#joblist')) {
+  if (document.location.hash.startsWith('#job/list')) {
     const timerId = setInterval(() => {
-      if (document.getElementsByClassName('job-list-table')[0]) {
+      root = getJobsPageRoot()
+
+      if (root && root.querySelectorAll('a.header-cell').length > 0) {
         clearInterval(timerId)
         if (featureToggles[Features.restoreFilterValue]) restoreFilterValue()
         if (featureToggles[Features.sortJobsByDesc]) sortJobsByDesc()
       }
-    }, 1000)
+    }, 500)
   }
 }
 
