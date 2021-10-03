@@ -20,7 +20,10 @@
       "https://*.azuredatabricks.net/*",
       "https://*.gcp.databricks.com/*"
     ],
-    "js": ["js/content.js"],
+    "js": [
+      "browser-polyfill.js",
+      "js/content.js"
+    ],
     "run_at": "document_end"
   }],
   "permissions": [
