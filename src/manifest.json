@@ -21,7 +21,6 @@
       "https://*.gcp.databricks.com/*"
     ],
     "js": [
-      "browser-polyfill.js",
       "js/content.js"
     ],
     "run_at": "document_end"
