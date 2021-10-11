@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ZipPlugin = require('zip-webpack-plugin')
 const path = require('path')
@@ -16,19 +17,11 @@ const config = {
     filename: 'js/[name].js',
   },
   context: __dirname,
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-    ],
-  },
   resolve: {
     extensions: ['.js'],
   },
   plugins: [
+    new ESLintPlugin(),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),

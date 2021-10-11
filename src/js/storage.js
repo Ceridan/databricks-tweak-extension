@@ -1,9 +1,11 @@
+import browser from 'webextension-polyfill'
+
 export default class ChromeLocalStorage {
-  static save(data, callback) {
-    chrome.storage.local.set(data, callback)
+  static async save(data) {
+    return browser.storage.local.set(data)
   }
 
-  static load(keys, callback) {
-    chrome.storage.local.get(keys, callback)
+  static async load(keys) {
+    return browser.storage.local.get(keys)
   }
 }

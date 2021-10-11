@@ -2,9 +2,10 @@
   "env": {
     "browser": true,
     "es6": true,
+    "node": true,
     "webextensions": true
   },
-  "extends": ["airbnb-base"],
+  "extends": ["eslint:recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,6 +17,7 @@
   },
   "rules": {
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "no-unsafe-optional-chaining": "off"
   }
 }

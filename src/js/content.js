@@ -1,12 +1,8 @@
+import browser from 'webextension-polyfill'
 import Storage from './storage'
 import { FeatureTogglesStorageKey, Features, getEnabledFeatures } from './features'
 
-const featureToggles = getEnabledFeatures()
-
-Storage.load(FeatureTogglesStorageKey, (fts) => {
-  Object.assign(featureToggles, fts && fts[FeatureTogglesStorageKey])
-})
-
+let featureToggles
 let jobListFilter
 let root
 
@@ -57,10 +53,19 @@ function locationHashChanged() {
   }
 }
 
-window.addEventListener('load', locationHashChanged)
-window.addEventListener('hashchange', locationHashChanged)
-chrome.storage.onChanged.addListener((changes) => {
-  if (changes[FeatureTogglesStorageKey] && changes[FeatureTogglesStorageKey].newValue) {
-    Object.assign(featureToggles, changes[FeatureTogglesStorageKey].newValue)
-  }
-})
+async function contentScriptHandler() {
+  const data = await Storage.load(FeatureTogglesStorageKey)
+  featureToggles = getEnabledFeatures(data && data[FeatureTogglesStorageKey])
+
+  window.addEventListener('load', locationHashChanged)
+  window.addEventListener('hashchange', locationHashChanged)
+  browser.storage.onChanged.addListener((changes) => {
+    if (changes[FeatureTogglesStorageKey] && changes[FeatureTogglesStorageKey].newValue) {
+      Object.assign(featureToggles, changes[FeatureTogglesStorageKey].newValue)
+    }
+  })
+}
+
+contentScriptHandler()
+  // eslint-disable-next-line no-console
+  .catch((err) => console.error('Databricks Tweak extesion content error: ', err))
