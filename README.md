@@ -1,10 +1,11 @@
 # ![logo](images/logo.png) Databricks Tweak
 
 [![chrome-web-store](https://img.shields.io/chrome-web-store/v/ildmaaenkjijfjohacihiijkhhhjehgj)][chrome-web-store]
+[![Mozilla Add-on](https://img.shields.io/amo/v/databricks-tweak)][mozilla-add-on]
 
 Databricks Tweak is a Web extension to enhance [Databricks](https://databricks.com/) UI. Databricks is great platform but there are some places in the UI which can be optimized in terms of productivity. `Databricks Tweak` extension adds some features to Databricks UI which could save you time if you are working with the Databricks on the every day basis.
 
-You may get Databricks Tweak extension from [Chrome Web Store][chrome-web-store].
+You may get Databricks Tweak extension from [Chrome Web Store][chrome-web-store] or [Firefox Browser Add-ons][mozilla-add-on].
 
 ## Features list
 
@@ -29,7 +30,7 @@ You may enable or disable any feature in the extension options.
 
     The `dist` and `out` folders will be created as a result of build step. The `dist` folder contains the builded extensions. The `out` folder contains zip-archive with the extension's code.
 
-## How to load extension to your browser
+## How to load an unpacked extension to your browser
 
 ### Instructions for Google Chrome
 
@@ -43,3 +44,4 @@ You may enable or disable any feature in the extension options.
 2. Click the `Load Temporary Add-on...` button and select the `zip` file in the `out` folder.
 
 [chrome-web-store]: https://chrome.google.com/webstore/detail/databricks-tweak/ildmaaenkjijfjohacihiijkhhhjehgj
+[mozilla-add-on]: https://addons.mozilla.org/en-US/firefox/addon/databricks-tweak/
