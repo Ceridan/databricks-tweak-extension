@@ -68,4 +68,4 @@ async function contentScriptHandler() {
 
 contentScriptHandler()
   // eslint-disable-next-line no-console
-  .catch((err) => console.error('Databricks Tweak extesion content error: ', err))
+  .catch((err) => console.error('Databricks Tweak extension content error: ', err))

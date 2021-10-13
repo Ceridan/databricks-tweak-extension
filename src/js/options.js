@@ -38,4 +38,4 @@ async function optionsPageHandler() {
 
 optionsPageHandler()
   // eslint-disable-next-line no-console
-  .catch((err) => console.error('Databricks Tweak extesion options error: ', err))
+  .catch((err) => console.error('Databricks Tweak extension options error: ', err))
